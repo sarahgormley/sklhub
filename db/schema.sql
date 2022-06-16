@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS skills_db;
+CREATE DATABASE skills_db;
