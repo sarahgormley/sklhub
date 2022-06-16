@@ -7,7 +7,9 @@
     --font: 'Roboto', sans-serif;
 }
 
+
 /* HTML selectors and styling */
+
 body {
     font-family: var(--font);
 }
@@ -32,7 +34,9 @@ img {
     width: 100%;
 }
 
+
 /* pseudo selectors and styling */
+
 .nav-link-color:hover {
     color: var(--light-green);
 }
@@ -41,7 +45,9 @@ header a:hover {
     color: var(--light-green);
 }
 
+
 /* class selectors and styling */
+
 .nav-link-color {
     color: var(--dark-green);
     font-size: 25px;
@@ -74,12 +80,13 @@ header a:hover {
     font-size: 20px;
 }
 
-.form-center
-{
+.form-center {
     text-align: center;
 }
 
+
 /* id selectors and styling */
+
 #skl {
     color: var(--light-green);
 }
@@ -89,4 +96,13 @@ header a:hover {
     font-weight: bolder;
     color: var(--dark-blue);
     text-align: center;
+}
+
+
+/* JS styling */
+
+#failed-msg {
+    font-size: 10px;
+    color: red;
+    font-style: italic;
 }
