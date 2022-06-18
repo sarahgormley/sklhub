@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Sally",
+      "email": "Sally.Lee@hotmail.com",
+      "password": "Pp$236",
+      "location": "Hillbank"
+    },
+    {
+      "name": "Laura",
+      "email": "Laura.Holland@gmail.com",
+      "password": "Pp$236",
+      "location": "Greenacres"
+    },
+    {
+      "name": "Miya",
+      "email": "Miya@aol.com",
+      "password": "Pp$236",
+      "location": "Prospect"
+    }
+  ]
