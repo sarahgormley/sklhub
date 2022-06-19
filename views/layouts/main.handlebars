@@ -28,9 +28,15 @@
               <div class="d-flex flex-row-reverse">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav navbar-margin">
+                      {{#if logged_in}}
+                      <li class="nav-item">
+                        <a class="nav-link nav-link-color" aria-current="page" href="#">Logout</a>
+                      </li>
+                      {{else}}
                       <li class="nav-item">
                         <a class="nav-link nav-link-color" aria-current="page" href="#">Login</a>
                       </li>
+                      {{/if}}
                       <li class="nav-item">
                         <a class="nav-link nav-link-color" href="#">Profile</a>
                       </li>
