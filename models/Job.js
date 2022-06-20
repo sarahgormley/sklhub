@@ -21,7 +21,11 @@ Job.init(
       date_created: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
+        defaultValue: DataTypes.NOW,    
+      },
+      time_value: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       job_swap: {
         type: DataTypes.STRING,
