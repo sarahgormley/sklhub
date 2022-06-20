@@ -31,6 +31,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        // This code checking password
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
@@ -39,6 +40,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        // These lines save the information in the session
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
