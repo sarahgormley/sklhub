@@ -151,6 +151,18 @@ header a:hover {
     color: var(--dark-green);
 }
 
+.job-details {
+    font-weight: bolder;
+}
+
+.icon-color {
+    color: var(--dark-green);
+}
+
+.row-border {
+    border: 2px solid var(--dark-blue);
+}
+
 
 /* id selectors and styling */
 
