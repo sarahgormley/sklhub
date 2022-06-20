@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Route for all user and protecting by withAuth method
 router.get('/', withAuth, async (req,res) => {
     try {
          // Get all jobs and JOIN with user data
@@ -46,10 +47,12 @@ router.get('/jobs/:id', withAuth, async (req, res) => {
             ],
         });
 
+        // Serialize object
         const jobSingle = jobData.get({ plain: true });
 
         res.render('viewJob', {
-            jobSingle,
+            // Using spread operator
+            ...jobSingle,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -79,10 +82,12 @@ router.get('/jobs/:id', withAuth, async (req, res) => {
 //     }
 // });
 
+// Login page route
 router.get('/login', (req, res) => {
-     // If the user is already logged in, redirect the request to another route
+     // If the user is already logged in, redirect the request to another route (profile)
      if (req.session.logged_in) {
-        res.redirect('/login');
+
+        res.redirect('/profile');
         return;
      }
 
