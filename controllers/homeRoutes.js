@@ -28,7 +28,22 @@ router.get('/', withAuth, async (req,res) => {
     }    
 });
 
-
+router.get('/signin', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+    res.render('signin');
+  });
+  
+  router.get('/signup', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+    res.render('signup');
+  });
+  
 // Use withAuth middleware to prevent access to route
 router.get('/jobs/:id', withAuth, async (req, res) => {
     try {
