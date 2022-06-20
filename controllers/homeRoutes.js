@@ -4,8 +4,8 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req,res) => {
     try {
-         // Get all ... and JOIN with user data
-        const = await .findAll({ 
+         // Get all jobs and JOIN with user data
+        const job = await jobs.findAll({ 
             include: [
                 {
                     model: User,
