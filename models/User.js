@@ -35,10 +35,16 @@ User.init(
         len: [6],
       },
     },
+    time: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+        },
+    
     location: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   },
   {
     hooks: {
