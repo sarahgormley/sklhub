@@ -1,53 +1,88 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/', async (req,res) => {
-//     try {
-//          // Get all ... and JOIN with user data
-//         const = await .findAll({ 
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
+router.get('/', async (req,res) => {
+    try {
+         // Get all Jobs and JOIN with user data
+        const jobData = await Job.findAll({ 
+            include: [
+               {
+                  model: Job,
+                  attributes: ['description'],
+               },
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
 
-//         // Serialize data so the template can read it
-//         // const = .map(() => .get({ palin: true }));
+        // Serialize data so the template can read it
+        const jobs = jobData.map((job) => job.get({ palin: true }));
 
-//         // Pass serialized data and session flag into template
-//         res.render('hompage', {
-//             projects,
-//             logged_in: req.session.logged_in
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }    
+        // Pass serialized data and session flag into template
+        res.render('hompage', {
+            jobs,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+      console.log(err);
+        res.status(500).json(err);
+    }    
+});
+
+router.get('/signin', (req, res) => {
+   if (req.session.logged_in) {
+     res.redirect('/');
+     return;
+   }
+   res.render('signin');
+ });
+ 
+ router.get('/signup', (req, res) => {
+   if (req.session.logged_in) {
+     res.redirect('/');
+     return;
+   }
+   res.render('signup');
+ });
+
+// Ignore only fopr root test
+// router.get('/', (req, res) => {
+
+//    res.send('test');
 // });
 
-// router.get('/.../:id', async (req, res) => {
-//     try {
-//         const ... = await ...findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
+// Use withAuth middleware to prevent access to route
+router.get('/jobs/:id', withAuth, async (req, res) => {
+    try {
+        const jobData = await Job.findByPk(req.params.id, {
+            include: [
+               {
+                    model: Job,
+                    attributes: ['id', 'name', 'description', 'job_swap', 'date_created', 'user_id'],
+                    model: User,
+                    attributes: ['name'],
+               },
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
 
-//         const ... = ...get({ plain: true });
+        const jobSingle = jobData.get({ plain: true });
 
-//         res.render('project', {
-//             ... ...User,
-//             logged_in: req.session.logged_in
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+        res.render('viewJob', {
+            jobSingle,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+      console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 
 // Use withAuth middleware to prevent access to route
@@ -73,7 +108,7 @@ const withAuth = require('../utils/auth');
 router.get('/login', (req, res) => {
      // If the user is already logged in, redirect the request to another route
      if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/');
         return;
      }
 
