@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req,res) => {
@@ -28,27 +28,35 @@ router.get('/', withAuth, async (req,res) => {
 });
 
 
-// router.get('/.../:id', async (req, res) => {
-//     try {
-//         const ... = await ...findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
+// Use withAuth middleware to prevent access to route
+router.get('/jobs/:id', withAuth, async (req, res) => {
+    try {
+        const jobData = await Job.findByPk(req.params.id, {
+            include: [
+               {
+                    model: Job,
+                    attributes: ['id', 'name', 'description', 'job_swap', 'date_created', 'user_id'],
+                    model: User,
+                    attributes: ['name'],
+               },
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
 
-//         const ... = ...get({ plain: true });
+        const jobSingle = jobData.get({ plain: true });
 
-//         res.render('project', {
-//             ... ...User,
-//             logged_in: req.session.logged_in
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+        res.render('viewJob', {
+            jobSingle,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+      console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 
 // Use withAuth middleware to prevent access to route

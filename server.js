@@ -17,10 +17,15 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: process.env.SECRET,
+  // Express session defualt cookies
   cookie: {
-    maxAge: 60 * 60 *1000,
-    htttOnly: true,
+    // Maximum active session
+    maxAge: 3600,
+    // Onlu HTTP server connection could store cookies
+    httpOnly: true,
+    // Only initialize session cookies if server HTTPS
     secure: false,
+    // Only initialize session cookies if domain out server hosted from
     sameSite: 'strict',
   },
   resave: false,
