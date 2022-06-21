@@ -2,74 +2,47 @@ const router = require('express').Router();
 const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
-// // Route for all user and protecting by withAuth method
-// router.get('/', withAuth, async (req,res) => {
-//     try {
-//          // Get all jobs and JOIN with user data
-//         const userData = await User.findAll({ 
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
-
-//         // Serialize data so the template can read it
-//         const users = userData.map((project) => project.get({ palin: true }));
-
-//         // Pass serialized data and session flag into template
-//         res.render('hompage', {
-//             users,
-//             logged_in: req.session.logged_in
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }    
-// });
-
-// router.get('/', async (req, res) => {
-//     try {
-//       const jobData = await Job.findAll({
-//         include: [
-//           {
-//             model: Job,
-//             attributes: ['content'],
-//           },
-//           {
-//             model: User,
-//             attributes: ['username'],
-//           },
-//         ],
-//       });
+// Jobs route to find all jobs
+router.get('/', async (req, res) => {
+    try {
+      // Get all job and JOIN with user data
+      const jobData = await Job.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
+      });
   
-//       const jobs = articleData.map((job) => job.get({ plain: true }));
+      // Serialize data so the template can read it
+      const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
   
-//       res.render('homepage', { 
-//         jobs, 
-//         logged_in: req.session.logged_in 
-//       });
-//     } catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-//   });
+      // Pass serialized data and session flag into template
+      res.render('dashboard', { 
+        jobs, 
+        logged_in: req.session.logged_in 
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-// router.get('/signin', (req, res) => {
-//     if (req.session.logged_in) {
-//       res.redirect('/');
-//       return;
-//     }
-//     res.render('signin');
-//   });
-  
-//   router.get('/signup', (req, res) => {
-//     if (req.session.logged_in) {
-//       res.redirect('/');
-//       return;
-//     }
-//     res.render('signup');
-//   });
+  router.get('/signin', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+    res.render('signin');
+  });
+
+  router.get('/signup', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+    res.render('signup');
+  });
   
 // Use withAuth middleware to prevent access to route
 router.get('/jobs/:id', withAuth, async (req, res) => {
@@ -90,11 +63,11 @@ router.get('/jobs/:id', withAuth, async (req, res) => {
         });
 
         // Serialize object
-        const jobSingle = jobData.get({ plain: true });
+        const job = jobData.get({ plain: true });
 
-        res.render('viewJob', {
+        res.render('dashboard', {
             // Using spread operator
-            ...jobSingle,
+            ...job,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -105,24 +78,24 @@ router.get('/jobs/:id', withAuth, async (req, res) => {
 
 
 // Use withAuth middleware to prevent access to route
-// router.get('/profile', withAuth, async (req, res) => {
-//     try {
-//        // Find the logged in user based on the session ID
-//        const userData = await User.findByPk(req.session.user_id, {
-//         attributes: { exculed: ['password'] },
-//         include: [{ model: ... }],
-//        });
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+       // Find the logged in user based on the session ID
+       const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exculed: ['password'] },
+        include: [{ model: User }],
+       });
        
-//        const user = userData.get({ palin: true });
+       const user = userData.get({ palin: true });
 
-//        res.render('profile', {
-//         ...user,
-//         logged_in: true
-//        });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+       res.render('profile', {
+        ...user,
+        logged_in: true
+       });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // Login page route
 router.get('/login', (req, res) => {
