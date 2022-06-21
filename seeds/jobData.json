@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Pet Care",
+    "description": "To take care of two rabbits and a dog daily from 9am to 9pm when the owner is on run to do delivery of food",
+    "job_swap": "Freshly cooked delicious food",
+    "time_value": "23"
+  },
+  {
+    "name": "Website Design and Development",
+    "description": "To develop a website for a food catering service",
+    "job_swap": "To provide daily meals until the task is done",
+    "time_value": "20"
+  },
+  {
+    "name": "Moving & Delivery",
+    "description": "To provide moving & delivery of furniture to a new home ",
+    "job_swap": "To provide Yoga classes or able to provide cash",
+    "time_value": "80"
+  }
+]
