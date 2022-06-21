@@ -163,6 +163,20 @@ header a:hover {
     border: 2px solid var(--dark-blue);
 }
 
+.new-job-input {
+    margin: 20px;
+}
+
+.only-underline {
+    border: none;
+    border-bottom: 1px solid var(--dark-blue);
+    background-color: var(--light-color);
+    align-items: center;
+}
+
+.post-job-btn {
+    margin-top: 30px;
+}
 
 /* id selectors and styling */
 
@@ -200,6 +214,10 @@ header a:hover {
 
 #jobs-messages-margin {
     margin: 20px;
+}
+
+#skill-swap {
+    font-weight: bolder;
 }
 
 
