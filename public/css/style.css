@@ -58,7 +58,7 @@ header a:hover {
     color: var(--light-color);
 }
 
-.dashboard-individual-links:hover{
+.dashboard-individual-links:hover {
     background-color: var(--dark-green);
 }
 
@@ -138,7 +138,6 @@ header a:hover {
 .my-job-card-username {
     color: var(--dark-green);
     font-weight: bolder;
-
 }
 
 .message-card {
@@ -205,8 +204,8 @@ header a:hover {
 
 /* JS styling */
 
-#failed-msg {
-    font-size: 10px;
+#login-failed {
+    font-size: 15px;
     color: red;
     font-style: italic;
 }
