@@ -37,25 +37,25 @@ const withAuth = require('../utils/auth');
 //   });
 
 
-  // router.get('/signup', (req, res) => {
-  //   if (req.session.logged_in) {
-  //     res.redirect('/');
-  //     return;
-  //   }
-  //   res.render('signup');
-  // });
+// router.get('/signup', (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect('/');
+//     return;
+//   }
+//   res.render('signup');
+// });
 
 
-  // Login page route
-router.get('/login', (req, res) => {
+// Login page route
+router.get('/signin', (req, res) => {
     // If the user is already logged in, redirect the request to another route (profile)
     if (req.session.logged_in) {
 
-       res.redirect('/profile');
-       return;
+        res.redirect('/');
+        return;
     }
 
-    res.render('login');
+    res.render('signin');
 });
 
 module.exports = router;
