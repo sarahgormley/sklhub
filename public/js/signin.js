@@ -19,7 +19,7 @@ const loginFormHandler = async(event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/');
         } else {
             //Append login failed to login
             loginFailed.innerHTML = "Login Failed! Please try again";
