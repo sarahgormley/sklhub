@@ -1,11 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/', async (req,res) => {
+// // Route for all user and protecting by withAuth method
+// router.get('/', withAuth, async (req,res) => {
 //     try {
-//          // Get all ... and JOIN with user data
-//         const = await .findAll({ 
+//          // Get all jobs and JOIN with user data
+//         const userData = await User.findAll({ 
 //             include: [
 //                 {
 //                     model: User,
@@ -15,11 +16,11 @@ const withAuth = require('../utils/auth');
 //         });
 
 //         // Serialize data so the template can read it
-//         // const = .map(() => .get({ palin: true }));
+//         const users = userData.map((project) => project.get({ palin: true }));
 
 //         // Pass serialized data and session flag into template
 //         res.render('hompage', {
-//             projects,
+//             users,
 //             logged_in: req.session.logged_in
 //         });
 //     } catch (err) {
@@ -27,10 +28,33 @@ const withAuth = require('../utils/auth');
 //     }    
 // });
 
-// router.get('/.../:id', async (req, res) => {
+// router.get('/signin', (req, res) => {
+//     if (req.session.logged_in) {
+//       res.redirect('/');
+//       return;
+//     }
+//     res.render('signin');
+//   });
+  
+//   router.get('/signup', (req, res) => {
+//     if (req.session.logged_in) {
+//       res.redirect('/');
+//       return;
+//     }
+//     res.render('signup');
+//   });
+  
+// Use withAuth middleware to prevent access to route
+// router.get('/jobs/:id', withAuth, async (req, res) => {
 //     try {
-//         const ... = await ...findByPk(req.params.id, {
+//         const jobData = await Job.findByPk(req.params.id, {
 //             include: [
+//                {
+//                     model: Job,
+//                     attributes: ['id', 'name', 'description', 'job_swap', 'date_created', 'user_id'],
+//                     model: User,
+//                     attributes: ['name'],
+//                },
 //                 {
 //                     model: User,
 //                     attributes: ['name'],
@@ -38,13 +62,16 @@ const withAuth = require('../utils/auth');
 //             ],
 //         });
 
-//         const ... = ...get({ plain: true });
+//         // Serialize object
+//         const jobSingle = jobData.get({ plain: true });
 
-//         res.render('project', {
-//             ... ...User,
+//         res.render('viewJob', {
+//             // Using spread operator
+//             ...jobSingle,
 //             logged_in: req.session.logged_in
 //         });
 //     } catch (err) {
+//       console.log(err);
 //         res.status(500).json(err);
 //     }
 // });
@@ -70,9 +97,11 @@ const withAuth = require('../utils/auth');
 //     }
 // });
 
+// Login page route
 router.get('/login', (req, res) => {
-     // If the user is already logged in, redirect the request to another route
+     // If the user is already logged in, redirect the request to another route (profile)
      if (req.session.logged_in) {
+
         res.redirect('/profile');
         return;
      }
