@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
-// // Jobs route to find all jobs
+// Jobs route to find all jobs
 // router.get('/', async (req, res) => {
 //   try {
 //     // Get all job and JOIN with user data
@@ -55,7 +55,7 @@ router.get('/login', (req, res) => {
        return;
     }
 
-    res.render('login');
+    res.render('signin');
 });
 
 module.exports = router;

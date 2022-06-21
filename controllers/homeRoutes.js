@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
   });
   
 // Use withAuth middleware to prevent access to route
-router.get('/jobs/:id', withAuth, async (req, res) => {
+router.get('/jobs/:id', async (req, res) => {
     try {
         const jobData = await Job.findByPk(req.params.id, {
             include: [
@@ -82,11 +82,11 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
        // Find the logged in user based on the session ID
        const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exculed: ['password'] },
+        attributes: { exclude: ['password'] },
         include: [{ model: User }],
        });
        
-       const user = userData.get({ palin: true });
+       const user = userData.get({ plain: true });
 
        res.render('profile', {
         ...user,
@@ -98,7 +98,7 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 // Login page route
-router.get('/login', (req, res) => {
+router.get('/signin', (req, res) => {
      // If the user is already logged in, redirect the request to another route (profile)
      if (req.session.logged_in) {
 
@@ -106,7 +106,7 @@ router.get('/login', (req, res) => {
         return;
      }
 
-     res.render('login');
+     res.render('signin');
 });
 
 module.exports = router;
