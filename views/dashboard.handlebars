@@ -7,19 +7,24 @@
 
     <div class="col-12 col-lg-8">
         <ul id="dashboard-link-list">
-            <a href="#" class="dashboard-link-style" id="users-jobs">
+            <a href="/newJob" class="dashboard-link-style">
                 <li class="dashboard-individual-links">
-                    View My Posted Jobs
+                    Post new job
                 </li>
             </a>
-            <a href="#" class="dashboard-link-style" id="avail-jobs">
+            <a href="#jobs-to-do" class="dashboard-link-style" id="users-jobs">
+                <li class="dashboard-individual-links">
+                    View jobs to do
+                </li>
+            </a>
+            <a href="#my-posted-jobs" class="dashboard-link-style" id="avail-jobs">
                 <li class="dashboard-individual-links" >
-                    View All Available Jobs
+                    View my posted jobs
                 </li>
             </a>
-            <a href="#" class="dashboard-link-style">
+            <a href="/jobs" class="dashboard-link-style">
                 <li class="dashboard-individual-links">
-                    Messages
+                    View all available jobs
                 </li>
             </a>
         </ul>
@@ -41,9 +46,9 @@
 </div>
 
 <div class="row row-adjust d-flex justify-content-center align-items-center" id="jobs-messages-margin">
-    <div class="col-12 col-lg-7 justify-content-end" id="jobs-column-style">
-        <h2 class="dashboard-heading" id="current-jobs">
-            My Accepted Jobs
+    <div class="col-12 jobs-column-style">
+        <h2 class="dashboard-heading" id="jobs-to-do">
+            Jobs to do
         </h2>
 
         <div class="row row-adjust row-style d-flex justify-content-center align-items-center text-center">
@@ -57,7 +62,7 @@
                 <p>
                     30 minutes
                 </p>
-                <button type="button" class="btn btn-style job-see-more">See more</button>
+                <button type="button" class="btn btn-style">See more</button>
             </div>
 
             <div class="col-12 col-lg-5 my-job-card">
@@ -70,7 +75,7 @@
                 <p>
                     20 minutes
                 </p>
-                <button type="button" class="btn btn-style job-see-more">See more</button>
+                <button type="button" class="btn btn-style">See more</button>
             </div>
 
             <div class="col-12 col-lg-5 my-job-card">
@@ -83,7 +88,7 @@
                 <p>
                     10 minutes
                 </p>
-                <button type="button" class="btn btn-style job-see-more">See more</button>
+                <button type="button" class="btn btn-style">See more</button>
             </div>
 
             <div class="col-12 col-lg-5 my-job-card">
@@ -96,17 +101,19 @@
                 <p>
                     60 minutes
                 </p>
-                <button type="button" class="btn btn-style job-see-more">See more</button>
+                <button type="button" class="btn btn-style">See more</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="col-12 col-lg-3" id="messages-column-style">
-        <h2 class="dashboard-heading" id="messages-heading">
-            Messages
+<div class="row row-adjust d-flex justify-content-center align-items-center" id="jobs-messages-margin">
+    <div class="col-12 jobs-column-style">
+        <h2 class="dashboard-heading" id="my-posted-jobs">
+            My posted jobs
         </h2>
-
-        <div class="message-card">
+    
+        <div class="my-job-card">
             <p class="my-job-card-username">
                 Username
             </p>
@@ -114,8 +121,8 @@
                 Job title...
             </p>
         </div>
-
-        <div class="message-card">
+    
+        <div class="my-job-card">
             <p class="my-job-card-username">
                 Username
             </p>
@@ -123,8 +130,8 @@
                 Job title...
             </p>
         </div>
-
-        <div class="message-card">
+    
+        <div class="my-job-card">
             <p class="my-job-card-username">
                 Username
             </p>
@@ -132,8 +139,8 @@
                 Job title...
             </p>
         </div>
-
-        <div class="message-card">
+    
+        <div class="my-job-card">
             <p class="my-job-card-username">
                 Username
             </p>
