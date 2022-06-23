@@ -19,9 +19,10 @@ const signupFormHandler = async(event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/login');
+            document.location.replace('/signin');
         } else {
-            alert(response.statusText);
+            signupFailed.innerHTML = "Sign Up Failed! Please try again";
+
         }
     }
 };
@@ -29,3 +30,5 @@ const signupFormHandler = async(event) => {
 document
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
+
+var signupFailed = document.querySelector('#signup-failed');
