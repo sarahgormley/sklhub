@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
-// // Jobs route to find all jobs
+// Jobs route to find all jobs
 // router.get('/', async (req, res) => {
 //   try {
 //     // Get all job and JOIN with user data
@@ -46,13 +46,13 @@ const withAuth = require('../utils/auth');
 // });
 
 
-// Login page route
+  // Login page route
 router.get('/signin', (req, res) => {
     // If the user is already logged in, redirect the request to another route (profile)
     if (req.session.logged_in) {
 
-        res.redirect('/');
-        return;
+       res.redirect('/');
+       return;
     }
 
     res.render('signin');

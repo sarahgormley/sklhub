@@ -1,4 +1,3 @@
-// TODO 
 
 // Ensure correct or change values for email and password collection from user input
 // Ensure login links to profile page once created
