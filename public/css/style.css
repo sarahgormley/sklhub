@@ -58,7 +58,7 @@ header a:hover {
     color: var(--light-color);
 }
 
-.dashboard-individual-links:hover{
+.dashboard-individual-links:hover {
     background-color: var(--dark-green);
 }
 
@@ -138,13 +138,6 @@ header a:hover {
 .my-job-card-username {
     color: var(--dark-green);
     font-weight: bolder;
-
-}
-
-.message-card {
-    margin: 20px;
-    padding: 20px;
-    background-color: var(--light-color);
 }
 
 .message-content {
@@ -178,6 +171,12 @@ header a:hover {
     margin-top: 30px;
 }
 
+.jobs-column-style {
+    background-color: var(--light-color);
+    border: 2px solid var(--dark-blue);
+    margin: 0 40px;
+}
+
 /* id selectors and styling */
 
 #skl {
@@ -196,22 +195,6 @@ header a:hover {
     padding-left: 5px;
 }
 
-#jobs-column-style {
-    background-color: var(--light-color);
-    border: 2px solid var(--dark-blue);
-    margin: 0 40px;
-}
-
-#messages-column-style {
-    background-color: var(--dark-blue);
-    border: 2px solid var(--dark-blue);
-    margin: 0 40px;
-}
-
-#messages-heading {
-    color: var(--light-green);
-}
-
 #jobs-messages-margin {
     margin: 20px;
 }
@@ -223,8 +206,8 @@ header a:hover {
 
 /* JS styling */
 
-#failed-msg {
-    font-size: 10px;
+#login-failed {
+    font-size: 15px;
     color: red;
     font-style: italic;
 }

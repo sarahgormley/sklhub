@@ -3,30 +3,28 @@ const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Jobs route to find all jobs
-router.get('/', async (req, res) => {
-    try {
+router.get('/', async(req, res) => {
+  try {
       // Get all job and JOIN with user data
       const jobData = await Job.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
+          include: [{
+              model: User,
+              attributes: ['name'],
+          }, ],
       });
-  
       // Serialize data so the template can read it
       const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
-  
       // Pass serialized data and session flag into template
-      res.render('dashboard', { 
-        jobs, 
-        logged_in: req.session.logged_in 
+      res.render('dashboard', {
+          jobs,
+          logged_in: req.session.logged_in
       });
-    } catch (err) {
+  } catch (err) {
       res.status(500).json(err);
-    }
-  });
+  }
+});
+
+
 
   // signin routes
   router.get('/signin', (req, res) => {
@@ -36,16 +34,20 @@ router.get('/', async (req, res) => {
       return;
     }
     res.render('signin');
-  });
+});
+
+
 
   // signup routes
   router.get('/signup', (req, res) => {
     if (req.session.logged_in) {
-      res.redirect('/');
-      return;
+        res.redirect('/');
+        return;
     }
     res.render('signup');
   });
+
+
 
   // New job routes
   router.get('/newjob', (req, res) => {
@@ -99,8 +101,7 @@ router.get('/', async (req, res) => {
 router.get('/jobs/:id', async (req, res) => {
     try {
         const jobData = await Job.findByPk(req.params.id, {
-            include: [
-               {
+            include: [{
                     model: Job,
                     attributes: ['id', 'name', 'description',  'date_created', 'time_value', 'job_swap', 'user_id'],
                },
@@ -120,11 +121,42 @@ router.get('/jobs/:id', async (req, res) => {
             logged_in: req.session.logged_in
         });
     } catch (err) {
-      console.log(err);
+        console.log(err);
         res.status(500).json(err);
     }
 });
 
 
+// Use withAuth middleware to prevent access to route
+router.get('/', withAuth, async(req, res) => {
+    try {
+        // Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: User }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('dashboard', {
+            ...user,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Login page route
+router.get('/signin', (req, res) => {
+    // If the user is already logged in, redirect the request to another route (profile)
+    if (req.session.logged_in) {
+
+        res.redirect('/');
+        return;
+    }
+
+    res.render('signin');
+});
 
 module.exports = router;

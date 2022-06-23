@@ -11,24 +11,24 @@ const loginFormHandler = async(event) => {
 
     if (email && password) {
 
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/users/signin', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/');
         } else {
             //Append login failed to login
-            var loginFailed = document.createElement("p");
-            loginFailed.setAttribute("id", "failed-msg");
             loginFailed.innerHTML = "Login Failed! Please try again";
-            divName.append(loginFailed);
+
         }
     }
 };
 
 document
-    .getElementById('login-form')
+    .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
+
+var loginFailed = document.querySelector('#login-failed');
