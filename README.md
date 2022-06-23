@@ -9,7 +9,7 @@ Our application will facilitate money-free bartering system if possible or littl
 
 This application will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, sequelize as the ORM, and the express-session npm package for authenication.
 
-The URL of the GitHub repository is <strong>https://github.com/sarahgormley/sklhub.git</strong>and the repository name is sklhub.
+The URL of the GitHub repository is <strong>https://github.com/sarahgormley/sklhub.git</strong> and the repository name is sklhub.
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ Project Team Group 2 Contributors are:-
 
 * This application will need the installation of Node.js and Express.js to create a RESTful API, Handlebars.js as the template engine and use MySQL and the Sequelize ORM as the database.
 
-* Node Package Manager (npm) is a software manager and installer which puts the modules in place so that node project can utilize it, and also, it manages dependency conflicts intelligently.
+* Node Package Manager (npm) is a software manager and installer which puts the modules in place so that node project can utilize it, and also, it manages dependency conflicts intelligently and initialized using <strong>npm init</strong>.  The package.json will be generated and will contain all the details of the application in which the user have inputted during the npm initialization.
 
 * The npm packages in use for this project:-
 
@@ -56,8 +56,16 @@ Project Team Group 2 Contributors are:-
 
  * Nodemon is installed as development dependency meaning that if our application ever goes into production, this package will not be included. The purpose of this package is to watch for any changes in our files and restart the server instead of us having to do that manually ourselves. 
 
-* The database models are set up in accordance to the criteria for this application.  See the screenshots from MySQL WorkBench.
- 
+* The database models are set up in accordance to the criteria for this application.  See the screenshots from MySQL WorkBench. MySQL Workbench is installed to help with design, create and browse the database schemas, work with the database objects and insert data as well as design and run SQL queries to work with the stored data.
+
+* Below shows MySQL Workbench for the database, skills_db:-
+
+    ![alt text](/assets/JobModel.png)
+    ![alt text](/assets/JobSeed.png)
+    ![alt text](/assets/UserModel.png)
+    ![alt text](/assets/UserSeed.png)
+
+* 
 
 ## Usage
 
