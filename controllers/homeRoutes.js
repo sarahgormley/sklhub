@@ -64,7 +64,7 @@ router.get('/jobs', async(req, res) => {
         const jobData = await Job.findAll({
             include: [{
                 model: Job,
-                attributes: ['id', 'name', 'description', 'date_created', 'time_value', 'job_swap', 'location', 'user_id'],
+                attributes: ['id', 'name', 'description', 'date_created', 'time_value', 'location', 'user_id'],
             },
             {
                 model: User,
