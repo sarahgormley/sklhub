@@ -1,13 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-console.log(User);
-
 router.post('/', async(req, res) => {
     try {
-        console.log(req.body);
         const userData = await User.create(req.body);
-        console.log(1);
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -53,7 +49,6 @@ router.post('/signin', async(req, res) => {
 });
 
 router.post('/signout', (req, res) => {
-    console.log(req.session)
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(204).end();
