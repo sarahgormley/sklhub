@@ -40,7 +40,6 @@ router.get('/signin', (req, res) => {
 });
 
 
-
 // signup routes
 router.get('/signup', (req, res) => {
     if (req.session.logged_in) {
@@ -58,46 +57,31 @@ router.get('/newjob', (req, res) => {
 
 });
 
-router.post('/newjobform', async(req, res) => {
-    try {
-        const newJob = await Job.create({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
 
-        res.status(200).json(newJob);
-
-
-    } catch (err) {
-        console.log(err);
-        res.status(400).json(err);
-    }
-});
-
-
-
-
-
-
-router.get('/jobs/', async(req, res) => {
+router.get('/jobs', async(req, res) => {
     try {
         // Find the logged in user based on the session ID
-        const userData = await job.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Project }],
+        const jobData = await Job.findAll({
+            include: [{
+                model: Job,
+                attributes: ['id', 'name', 'description', 'date_created', 'time_value', 'job_swap', 'location', 'user_id'],
+            },
+            {
+                model: User,
+                attributes: ['name'],
+            },
+        ],
         });
 
-        const user = userData.get({ plain: true });
+        const user = jobData.get({ plain: true });
 
         res.render('jobs', {
-            ...user,
             logged_in: true
         });
     } catch (err) {
         res.status(500).json(err);
     }
 });
-
 
 
 // Use withAuth middleware to prevent access to route, single job route
@@ -150,16 +134,6 @@ router.get('/', withAuth, async(req, res) => {
     }
 });
 
-// Login page route
-router.get('/signin', (req, res) => {
-    // If the user is already logged in, redirect the request to another route (profile)
-    if (req.session.logged_in) {
 
-        res.redirect('/');
-        return;
-    }
-
-    res.render('signin');
-});
 
 module.exports = router;

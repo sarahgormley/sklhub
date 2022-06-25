@@ -27,12 +27,12 @@ Job.init(
     },
     time_value: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
-    job_swap: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // job_swap: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
     location: {
       type: DataTypes.STRING,
       allowNull: false,
