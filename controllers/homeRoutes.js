@@ -73,10 +73,10 @@ router.get('/jobs', async(req, res) => {
         ],
         });
 
-        const user = jobData.get({ plain: true });
+        const jobs = jobData.get({ plain: true });
 
         res.render('jobs', {
-            logged_in: true
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
