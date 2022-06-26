@@ -56,6 +56,7 @@ Project Team Group 2 Contributors are:-
   - npm cookies (npm i cookies)
   - npm router (npm i router)
   - npm bootstrap 5.0.2  
+  - npm email-validator (npm i email-validator)
 
 * npm bootstrap 5.0.2 also another new library not discussed in the class.
 
