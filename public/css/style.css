@@ -38,6 +38,10 @@ p {
     font-size: 18px;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 /* pseudo selectors and styling */
 
@@ -197,10 +201,6 @@ header a:hover {
 
 #jobs-messages-margin {
     margin: 20px;
-}
-
-#skill-swap {
-    font-weight: bolder;
 }
 
 
