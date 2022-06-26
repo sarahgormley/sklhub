@@ -11,6 +11,8 @@ This application will follow the MVC paradigm in its architectural structure, us
 
 The URL of the GitHub repository is <strong>https://github.com/sarahgormley/sklhub.git</strong> and the repository name is sklhub.
 
+
+
 ## Table of Contents
 
 * [Contributors](#contributors)
@@ -42,37 +44,64 @@ Project Team Group 2 Contributors are:-
 
 * The npm packages in use for this project:-
 
-  - NPM Express.js (npm i express)
-  - NPM Handlebars.js (npm i handlebars)
-  - NPM Sequelize ORM (npm i sequelize)
-  - NPM Express-Session (npm i express-session)
-  - NPM bcrypt (npm i bcrypt)
-  - NPM mysql2 (npm install --save mysql2)
-  - NPM dotenv (npm install dotenv --save)
-  - NPM nodemon (npm i -D nodemon)
-  - NPM connect-session-sequelize (npm i connect-session-sequelize)
-  - NPM Cookies (npm i cookies)
-  - NPM Router (npm i router)
+  - npm express.js (npm i express)
+  - npm handlebars.js (npm i handlebars)
+  - npm sequelize ORM (npm i sequelize)
+  - npm express-Session (npm i express-session)
+  - npm bcrypt (npm i bcrypt)
+  - npm mysql2 (npm install --save mysql2)
+  - npm dotenv (npm install dotenv --save)
+  - npm nodemon (npm i -D nodemon)
+  - npm connect-session-sequelize (npm i connect-session-sequelize)
+  - npm cookies (npm i cookies)
+  - npm router (npm i router)
+  - npm bootstrap 5.0.2  
+
+* npm bootstrap 5.0.2 also another new library not discussed in the class.
 
  * Nodemon is installed as development dependency meaning that if our application ever goes into production, this package will not be included. The purpose of this package is to watch for any changes in our files and restart the server instead of us having to do that manually ourselves. 
 
 * The database models are set up in accordance to the criteria for this application.  See the screenshots from MySQL WorkBench. MySQL Workbench is installed to help with design, create and browse the database schemas, work with the database objects and insert data as well as design and run SQL queries to work with the stored data.
 
+* The link to install this is provided out of the office hours and not used in class practices and this is one other technology not instructed to use or discussed in detail.
+
 * Below shows MySQL Workbench for the database, skills_db:-
 
-    ![alt text](/assets/JobModel.png)
-    ![alt text](/assets/JobSeed.png)
-    ![alt text](/assets/UserModel.png)
-    ![alt text](/assets/UserSeed.png)
+    ![alt text](./assets/JobModel.png)
+    ![alt text](./assets/JobSeed.png)
+    ![alt text](./assets/UserModel.png)
+    ![alt text](./assets/UserSeed.png)
 
-* 
+* The test of the application is done locally before deployment to Heroku using Insomnia.  At the comand prompt, type in npm start or nodemon server.js or at localhost:3001
+
+  ![alt text](./assets/NodemonTest.png)
+
+* Test locally using Insomnia:-
+
+  ![alt text](./assets/LandingPage.png) 
 
 ## Usage
 
+The steps to show on how the user could use the SKLHub site:-
 
- 
+* When the user visit the SKLHub site, the user will be presented with "Welcome to SKLHub!" which the user can log in if they have an account with SKLHub or Sign Up if they don't have an account with SKLHub.  
+
+  ![alt text](./assets/LandingPage2.png)
+
+* Once the user log in, this will bring the user to the dashboard where the user can post new jobs:-
+
+  ![alt text](./assets/NewJobPost.png)
+
+* At the Sign Up page, the new user can sign up by entering their username, email address and password:-
+
+  ![alt text](./assets/SignUp2.png)
+
 
 ## References
+
+* The Unit Ahead Materials: Model-View-Controller (MVC)
+* Unit 14: Student Mini Project - Crowdfunding App
+* Request - Response: The Full-Stack Blog : Heroku Deployment Guide
 
 ## License
 
