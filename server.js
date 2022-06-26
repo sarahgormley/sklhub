@@ -20,7 +20,7 @@ const sess = {
   // Express session defualt cookies
   cookie: {
     // Maximum active session
-    maxAge: 3600,
+    maxAge: 60 * 60 *1000,
     // Onlu HTTP server connection could store cookies
     httpOnly: true,
     // Only initialize session cookies if server HTTPS

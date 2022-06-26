@@ -2,33 +2,6 @@ const router = require('express').Router();
 const { User, Job } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Jobs route to find all jobs
-router.get('/', async(req, res) => {
-    try {
-        if (!req.session.logged_in) {
-            return res.redirect('/signin')
-        }
-        // Get all job and JOIN with user data
-        const jobData = await Job.findAll({
-            include: [{
-                model: User,
-                attributes: ['name'],
-            }, ],
-        });
-        // Serialize data so the template can read it
-        const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
-        // Pass serialized data and session flag into template
-        res.render('dashboard', {
-            jobs,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-
-
 // signin routes
 router.get('/signin', (req, res) => {
     if (req.session.logged_in) {
@@ -62,10 +35,7 @@ router.get('/jobs', async(req, res) => {
     try {
         // Find the logged in user based on the session ID
         const jobData = await Job.findAll({
-            include: [{
-                model: Job,
-                attributes: ['id', 'name', 'description', 'date_created', 'time_value', 'job_swap', 'location', 'user_id'],
-            },
+            include: [
             {
                 model: User,
                 attributes: ['name'],
@@ -73,10 +43,11 @@ router.get('/jobs', async(req, res) => {
         ],
         });
 
-        const user = jobData.get({ plain: true });
+        const jobs = jobData.map((jobs) => jobs.get({ plain: true }));
 
         res.render('jobs', {
-            logged_in: true
+            jobs,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -88,13 +59,10 @@ router.get('/jobs', async(req, res) => {
 router.get('/jobs/:id', async(req, res) => {
     try {
         const jobData = await Job.findByPk(req.params.id, {
-            include: [{
-                    model: Job,
-                    attributes: ['id', 'name', 'description', 'date_created', 'time_value', 'job_swap', 'location', 'user_id'],
-                },
+            include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['name', 'email'],
                 },
             ],
         });
@@ -104,23 +72,22 @@ router.get('/jobs/:id', async(req, res) => {
 
         res.render('singleJob', {
             // Using spread operator
-            ...job,
+            job,
             logged_in: req.session.logged_in
         });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
 
 
 // Use withAuth middleware to prevent access to route
-router.get('/', withAuth, async(req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: User }],
+            include: [{ model: Job }],
         });
 
         const user = userData.get({ plain: true });

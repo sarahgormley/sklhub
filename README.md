@@ -55,8 +55,8 @@ Project Team Group 2 Contributors are:-
   - npm connect-session-sequelize (npm i connect-session-sequelize)
   - npm cookies (npm i cookies)
   - npm router (npm i router)
-  - npm bootstrap 5.0.2 
-  - npm email-validator (npm install email-validator)
+  - npm bootstrap 5.0.2  
+  - npm email-validator (npm i email-validator)
 
 * npm email-validator is a simple module to to provide a fast, pretty robust e-mail validator.  This package is one that haven't been discussed in the class.
 

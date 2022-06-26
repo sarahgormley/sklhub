@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const emailValidator = require('email-validator');
 
 class User extends Model {
     checkPassword(loginPw) {
@@ -24,7 +25,8 @@ User.init({
         allowNull: false,
         unique: true,
         validate: {
-            isEmail: true,
+            validator: emailValidator.validate,
+            message: props => `${props.value} is not a valid email address!`,
         },
     },
     password: {
