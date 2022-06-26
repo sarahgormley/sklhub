@@ -66,6 +66,8 @@
                 <a href="/jobs/{{job.id}}">
                     <button type="button" class="btn btn-style">More info</button>
                 </a>
+                <button type="button" class="btn btn-style delete-btn" data-id="{{job.id}}">Delete</button>
+                <p><span id="delete-failed"></span></p>
             </div>
             {{/each}}
             {{else}}
@@ -81,65 +83,4 @@
     </div>
 </div>
 
-<!-- List jobs that user's have selected to complete -->
-<div class="row row-adjust d-flex justify-content-center align-items-center" id="jobs-messages-margin">
-    <div class="col-12 jobs-column-style">
-        <h2 class="dashboard-heading" id="jobs-to-do">
-            Jobs to do
-        </h2>
-
-        <div class="row row-adjust row-style d-flex justify-content-center align-items-center text-center">
-            <div class="col-12 col-lg-5 my-job-card">
-                <h3 class="my-job-card-heading">
-                    Paint fence
-                </h3>
-                <p class="my-job-card-username">
-                    Username
-                </p>
-                <p>
-                    30 minutes
-                </p>
-                <button type="button" class="btn btn-style">See more</button>
-            </div>
-
-            <div class="col-12 col-lg-5 my-job-card">
-                <h3 class="my-job-card-heading">
-                    Tip run
-                </h3>
-                <p class="my-job-card-username">
-                    Username
-                </p>
-                <p>
-                    20 minutes
-                </p>
-                <button type="button" class="btn btn-style">See more</button>
-            </div>
-
-            <div class="col-12 col-lg-5 my-job-card">
-                <h3 class="my-job-card-heading">
-                    Walk dog
-                </h3>
-                <p class="my-job-card-username">
-                    Username
-                </p>
-                <p>
-                    10 minutes
-                </p>
-                <button type="button" class="btn btn-style">See more</button>
-            </div>
-
-            <div class="col-12 col-lg-5 my-job-card">
-                <h3 class="my-job-card-heading">
-                    Create website
-                </h3>
-                <p class="my-job-card-username">
-                    Username
-                </p>
-                <p>
-                    60 minutes
-                </p>
-                <button type="button" class="btn btn-style">See more</button>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="/js/deleteJob.js"></script>
