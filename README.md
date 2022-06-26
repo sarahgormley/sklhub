@@ -58,7 +58,9 @@ Project Team Group 2 Contributors are:-
   - npm bootstrap 5.0.2  
   - npm email-validator (npm i email-validator)
 
-* npm bootstrap 5.0.2 also another new library not discussed in the class.
+ * npm email-validator provides a fast, pretty robust e-mail validator which checks form and not function and not discussed in the class.This project uses email address as primary form of contact and thus of a great importance to install this package.    
+
+ * npm bootstrap 5.0.2 also another new library not discussed in the class.
 
  * Nodemon is installed as development dependency meaning that if our application ever goes into production, this package will not be included. The purpose of this package is to watch for any changes in our files and restart the server instead of us having to do that manually ourselves. 
 
@@ -89,13 +91,31 @@ The steps to show on how the user could use the SKLHub site:-
 
   ![alt text](./assets/LandingPage2.png)
 
+* At the Sign Up page, the new user can sign up by entering their username, email address and password:-
+
+  ![alt text](./assets/SignUp2.png)  
+
 * Once the user log in, this will bring the user to the dashboard where the user can post new jobs:-
 
   ![alt text](./assets/NewJobPost.png)
 
-* At the Sign Up page, the new user can sign up by entering their username, email address and password:-
+* Once the user has entered the job details and click on "Post job!", this will be displayed on the dashboard.
 
-  ![alt text](./assets/SignUp2.png)
+  ![alt text](./assets/PostedJobs.png)
+
+* The user would be able to view all the available jobs by clicking on the "Jobs"on the navigation bar or "View all available jobs".
+
+  ![alt text](./assets/UserDashboard.png)
+
+* Once the user click on "More Info" on Jobs, the users (the community) will able to view the details and contact each other by email.
+
+  ![alt text](./assets/JobsList.png)
+  ![alt text](./assets/JobDetail.png)
+  ![alt text](./assets/contact.png)
+
+* Clicking on "Sign Out" will bring the user to the "Welcome" page.
+
+  ![alt text](./assets/LandingPage22.png)
 
 
 ## References
