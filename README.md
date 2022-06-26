@@ -55,11 +55,14 @@ Project Team Group 2 Contributors are:-
   - npm connect-session-sequelize (npm i connect-session-sequelize)
   - npm cookies (npm i cookies)
   - npm router (npm i router)
-  - npm bootstrap 5.0.2  
+  - npm bootstrap 5.0.2 
+  - npm email-validator (npm install email-validator)
+
+* npm email-validator is a simple module to to provide a fast, pretty robust e-mail validator.  This package is one that haven't been discussed in the class.
 
 * npm bootstrap 5.0.2 also another new library not discussed in the class.
 
- * Nodemon is installed as development dependency meaning that if our application ever goes into production, this package will not be included. The purpose of this package is to watch for any changes in our files and restart the server instead of us having to do that manually ourselves. 
+* Nodemon is installed as development dependency meaning that if our application ever goes into production, this package will not be included. The purpose of this package is to watch for any changes in our files and restart the server instead of us having to do that manually ourselves. 
 
 * The database models are set up in accordance to the criteria for this application.  See the screenshots from MySQL WorkBench. MySQL Workbench is installed to help with design, create and browse the database schemas, work with the database objects and insert data as well as design and run SQL queries to work with the stored data.
 
@@ -72,7 +75,7 @@ Project Team Group 2 Contributors are:-
     ![alt text](./assets/UserModel.png)
     ![alt text](./assets/UserSeed.png)
 
-* The test of the application is done locally before deployment to Heroku using Insomnia.  At the comand prompt, type in npm start or nodemon server.js or at localhost:3001
+* The test of the application is done locally before deployment to Heroku using Insomnia. At the comand prompt, type in npm start or nodemon server.js or at localhost:3001
 
   ![alt text](./assets/NodemonTest.png)
 
