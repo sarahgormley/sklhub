@@ -56,7 +56,7 @@ router.get('/jobs', async(req, res) => {
 
 
 // Use withAuth middleware to prevent access to route, single job route
-router.get('/jobs/:id', async(req, res) => {
+router.get('/jobs/:id', withAuth, async(req, res) => {
     try {
         const jobData = await Job.findByPk(req.params.id, {
             include: [
