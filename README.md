@@ -11,7 +11,7 @@ This application will follow the MVC paradigm in its architectural structure, us
 
 The URL of the GitHub repository is <strong>https://github.com/sarahgormley/sklhub.git</strong> and the repository name is sklhub.
 
-
+The URL of the deployed application to Heroku is https://warm-citadel-17427.herokuapp.com/
 
 ## Table of Contents
 
@@ -26,8 +26,8 @@ The URL of the GitHub repository is <strong>https://github.com/sarahgormley/sklh
 Project Team Group 2 Contributors are:-
 
 * Orcun Sarmis - Controllers and MVC Folder
-* Charlotte Dige - Views/Handlebars/CSS
-* Sarah Gormley - Front-end JS and Wireframing
+* Charlotte Dige - Views/Handlebars/CSS, Deployment to Heroku
+* Sarah Gormley - Front-end JS, Wireframing and Presentation Slides
 * Stella Ling - Models, Seeds and README
 
 ## Installation
@@ -87,7 +87,7 @@ Project Team Group 2 Contributors are:-
 
 The steps to show on how the user could use the SKLHub site:-
 
-* When the user visit the SKLHub site, the user will be presented with "Welcome to SKLHub!" which the user can log in if they have an account with SKLHub or Sign Up if they don't have an account with SKLHub.  
+* When the user visit the SKLHub site, the user will be presented with "Welcome to SKLHub!" which the user can log in if they have an account with SKLHub or Sign Up if they don't have an account with SKLHub ('New to SKLHub').  
 
   ![alt text](./assets/LandingPage2.png)
 
@@ -95,9 +95,10 @@ The steps to show on how the user could use the SKLHub site:-
 
   ![alt text](./assets/SignUp2.png)  
 
-* Once the user log in, this will bring the user to the dashboard where the user can post new jobs:-
+* Once the user log in, this will bring the user to the dashboard where the user can post new jobs or view their posted jobs:-
 
   ![alt text](./assets/NewJobPost.png)
+  ![alt text](./assets/NewJobPost2.png)
 
 * Once the user has entered the job details and click on "Post job!", this will be displayed on the dashboard.
 
@@ -105,11 +106,11 @@ The steps to show on how the user could use the SKLHub site:-
 
 * The user would be able to view all the available jobs by clicking on the "Jobs"on the navigation bar or "View all available jobs".
 
-  ![alt text](./assets/UserDashboard.png)
+  ![alt text](./assets/JobsList.png)
 
 * Once the user click on "More Info" on Jobs, the users (the community) will able to view the details and contact each other by email.
 
-  ![alt text](./assets/JobsList.png)
+
   ![alt text](./assets/JobDetail.png)
   ![alt text](./assets/contact.png)
 
